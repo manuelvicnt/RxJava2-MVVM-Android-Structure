@@ -1,7 +1,6 @@
 package com.manuelvicnt.rxjava2_mvvm_android_structure.registration;
 
 import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 
 import com.manuelvicnt.rxjava2_mvvm_android_structure.base.Constants;
 import com.manuelvicnt.rxjava2_mvvm_android_structure.base.Lifecycle;
@@ -14,8 +13,6 @@ import com.manuelvicnt.rxjava2_mvvm_android_structure.networking.login.exception
 import com.manuelvicnt.rxjava2_mvvm_android_structure.networking.registration.exception.RegistrationInternalException;
 import com.manuelvicnt.rxjava2_mvvm_android_structure.networking.registration.exception.RegistrationNicknameAlreadyExistsException;
 import com.manuelvicnt.rxjava2_mvvm_android_structure.networking.registration.exception.RegistrationTechFailureException;
-
-import io.reactivex.MaybeSource;
 
 import static com.manuelvicnt.rxjava2_mvvm_android_structure.base.Constants.REQUEST_FAILED;
 import static com.manuelvicnt.rxjava2_mvvm_android_structure.base.Constants.REQUEST_SUCCEEDED;
@@ -117,18 +114,21 @@ public class RegistrationViewModel extends NetworkViewModel implements Registrat
         @Override
         public void onSuccess(Object value) {
 
+            super.onSuccess(value);
             onRegistrationCompleted();
         }
 
         @Override
         public void onError(Throwable e) {
 
+            super.onError(e);
             onRegistrationError(e);
         }
 
         @Override
         public void onComplete() {
 
+            super.onComplete();
         }
     }
 }
